@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Login from "./screens/Login/Login";
+import styles from "./app.module.css";
+import ballerina from "./img/ballerina.png";
+import Signup from "./screens/Signup/Signup";
+import { Route } from 'react-router-dom';
+import ForgotPassword from "./screens/ForgotPassword/ForgotPassword";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.wrapper}>
+      <img src={ballerina} alt="ballerina" className={[styles.ballerina, styles.swing].join(" ")}/>
+      <Route exact path="/" component={Login}/>
+      <Route path="/signup" component={Signup}/>
+      <Route path="/forgotPassword" component={ForgotPassword}/>
     </div>
   );
 }
